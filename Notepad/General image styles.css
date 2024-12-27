@@ -1,0 +1,91 @@
+/* style.css */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFB6C1;
+}
+
+/* Image container styles */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://codesignal-staging-assets.s3.amazonaws.com/uploads/1702500465618/html-placeholder2.png'); /* Corrected to use URL() */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column; /* Allows stacking of elements */
+    justify-content: space-between; /* Space between h1 and p */
+    align-items: center; /* Centers items horizontally */
+}
+
+/* H1 styles */
+h1 {
+    position: center;
+    top: 20px; /* Adjusted to position at the upper center */
+    left: 50%;
+    transform: translate X(-50%);
+    font-size: 48px;
+    color: #FFFAFA;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* P styles */
+p {
+    position: center;
+    bottom: 20px; /* Positions the paragraph at the bottom center */
+    left: 50%;
+    transform: translate X(-50%);
+    font-size: 28px;
+    color: #F0F8FF;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* H1 hover styles */
+h1:hover {
+    color: #FFFFF0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* General image styles */
+img {
+    max-width: 100%; /* Ensures images are responsive */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;  /* Removes bottom space in inline images */
+    margin: 0 auto; /* Centers images if they are block elements */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+/* Specific class for decorative images */
+.img-decorative {
+    border: 2px dashed #ccc; /* Dashed border for decorative images */
+}
+
+/* Specific class for profile images */
+.img-profile {
+    border: 3px solid #007BFF; /* Solid border for profile images */
+    width: 150px; /* Fixed width for profile images */
+    height: 150px; /* Fixed height for profile images */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    img {
+        width: 100%; /* Full width on small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
