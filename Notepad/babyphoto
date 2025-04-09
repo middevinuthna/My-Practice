@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baby Frame</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffe07d, #fc8eac);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .frame {
+      position: relative;
+      width: 400px;
+      height: 520px;
+      background-color: rgb(153, 210, 224);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .frame h1 {
+      font-size: 20px;
+      color: #d63384;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .frame hr {
+      width: 80%;
+      border: 1px solid #ffa500;
+    }
+
+    .frame img.baby {
+      margin-top: 20px;
+      width: 300px;
+      z-index: 2;
+    }
+    
+    .frame hr {
+      width: 80%;
+      border: 1px solid #ffa500;
+    }
+    .frame p {
+      font-size: 15px;
+      color: #d63384;
+      margin: 0;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame"> 
+    <!-- Heading Text -->
+    <h1>Many More Happy Returns Of The Day Vinuthna</h1>
+    <hr>
+
+    <!-- Baby Photo -->
+    <img src="Saved Pictures/Vinu.png" alt="Baby" class="baby" />
+    <p>Wish you happy life .</p>
+  </div>
+</body>
+</html>
