@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get User Location</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #location-info {
+            margin-top: 30px;
+            font-weight: bold;
+            color: #555;
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        #location-info.error {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        button.loading {
+            animation: pulse 1s infinite alternate;
+            pointer-events: none; /* Disable button while loading */
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Get Your Location</h1>
+
+    <button onclick="getLocation()">Get Location</button>
+
+    <div id="location-info"></div>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("location-info").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const accuracy = position.coords.accuracy;
+
+            document.getElementById("location-info").innerHTML =
+                "Latitude: " + latitude + "<br>" +
+                "Longitude: " + longitude + "<br>" +
+                "Accuracy: " + accuracy + " meters";
+
+            console.log("Latitude:", latitude, "Longitude:", longitude, "Accuracy:", accuracy);
+
+            // You can now use these coordinates as needed, for example:
+            // - Send them to your server
+            // - Display them on a map
+        }
+
+        function showError(error) {
+            let errorMessage;
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    errorMessage = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    errorMessage = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    errorMessage = "An unknown error occurred.";
+                    break;
+            }
+            document.getElementById("location-info").innerHTML = "Error: " + errorMessage;
+            console.error("Geolocation Error:", errorMessage);
+        }
+    </script>
+
+</body>
+</html>
